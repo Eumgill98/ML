@@ -20,7 +20,8 @@ def calculate(weight, x, bias):
 
 #비용 함수 정의
 def cost_calculate(y, y_hat):
-    cost = ((y - y_hat) ** 2).mean()
+    cost = ((y - y_hat) ** 2).mean() #MSE
+    return cost
 
 
 def fit(x, y, epoch=10000, lr = 0.5):
@@ -32,7 +33,8 @@ def fit(x, y, epoch=10000, lr = 0.5):
         y_hat = calculate(weight, x, bias)
         cost = cost_calculate(y, y_hat)
 
-        #가중치 및 변향 업데이트
+        #가중치 및 편향 업데이트
+        ##경사하강법 적용
         weight -= lr * ((y_hat - y) * x).mean()
         bias -= lr * (y_hat - y).mean()
 
