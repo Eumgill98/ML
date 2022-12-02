@@ -9,8 +9,8 @@ y = database.target
 
 #초기 weight값 설정
 def initialization_wb():
-    weight = 0.0
-    bias = 0.0
+    weight = np.random.uniform(low=-1.0, high=1.0)
+    bias = np.random.uniform(low=-1.0, high=1.0)
     return weight, bias
 
 #예측 y값 계산 함수 정의
