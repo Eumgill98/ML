@@ -31,7 +31,7 @@ def fit(x, y, epoch=10000, lr = 0.5):
     for i in range(epoch):
         #매번 랜덤값 가져오기
         x_sgd = np.random.choice(x)
-        y_sgd =  y[np.where(x== x_sgd)[0][0]]
+        y_sgd =  y[np.random.choice(np.where(x==x_sgd)[0])]
 
         #예측값 계산
         y_hat = calculate(weight, x_sgd, bias)
