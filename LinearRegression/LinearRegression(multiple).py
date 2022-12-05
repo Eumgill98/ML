@@ -9,8 +9,8 @@ y = y.reshape(len(y),1)
 
 #초기 가중치, 편향 지정
 def initialization_wb():
-    weight = np.random.uniform(low=-1.0, high=1.0, size=(len(x[0]), 1))
-    bias = np.random.uniform(low=-1.0, high=1.0)
+    weight = np.random.uniform(size=(len(x[0]), 1))
+    bias = np.random.uniform()
     return weight, bias
 
 
@@ -31,19 +31,20 @@ def fit(x, y,  epoch=500, lr = 0.0005):
     weight, bias = initialization_wb()
 
     for i in range(epoch):
+
         y_hat = calculate(weight, x, bias)
 
         cost = cost_calculate(y, y_hat)
-
-
+        
         #가중치 및 편향 업데이트
         ##경사하강법 적용
-        weight -= lr * ((y_hat - y) * x).mean()
-        bias -= lr * (y_hat - y).mean()
+        weight -= lr * (2*(y_hat - y) * x).mean()
+        bias -= lr * (2*(y_hat - y)).mean()
         
+
         print(f"Epoch : {i}, Weight : {weight}, Bias : {bias}, Cost : {cost}")
 
 #run!
-fit(x, y, epoch=140, lr=0.0005)
+fit(x, y, epoch=1000, lr=0.0000000000000008)
 
 ## 학습률이 높거나 에포크가 많으면 무한의 양으로 간다
