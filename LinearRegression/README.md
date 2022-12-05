@@ -2,6 +2,8 @@
 <br>
 
 🚩
-1. 단순 회귀 분석 구현[배치 경사하강법] (LinearRegression(simple).py)
+1. 단순 선형 회귀 분석 구현[배치 경사하강법] (LinearRegression(simple).py)
 
-2. 단순 회귀 분석 구현2[확률적 경사하강법] (LinearRegression(simple_SGD).py)
+2. 단순 선형 회귀 분석 구현2[확률적 경사하강법] (LinearRegression(simple_SGD).py)
+
+3. 다중 선형 회귀 분석 구현[배치 경사하강법] (LinearRegression(mutiple).py)
