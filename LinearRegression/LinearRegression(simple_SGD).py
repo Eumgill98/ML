@@ -37,8 +37,8 @@ def fit(x, y, epoch=10000, lr = 0.5):
         y_hat = calculate(weight, x_sgd, bias)
 
         #가중치 업데이트(확률적 경사하강법)
-        weight -= lr*((y_hat - y_sgd) * x_sgd)
-        bias -= lr*(y_hat - y_sgd)
+        weight = weight- lr*(2*(y_hat - y_sgd) * x_sgd).mean()
+        bias = bias- lr*(2*(y_hat - y_sgd)).mean()
 
         #cost 
         predict = weight * x + bias

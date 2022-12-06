@@ -35,8 +35,8 @@ def fit(x, y, epoch=10000, lr = 0.5):
         cost = cost_calculate(y, y_hat)
         #가중치 및 편향 업데이트
         ##경사하강법 적용
-        weight -= lr * ((y_hat - y) * x).mean()
-        bias -= lr * (y_hat - y).mean()
+        weight -= lr * (2*(y_hat - y) * x).mean()
+        bias -= lr * (2*(y_hat - y)).mean()
 
         if(i + 1) % 1000 == 0:
             print(f"Epoch : {i}, Weight : {weight}, Bias : {bias}, Cost : {cost}")
