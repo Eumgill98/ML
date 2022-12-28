@@ -10,7 +10,6 @@ data = load_breast_cancer()
 X_train = data.data
 y_train = np.where(data.target == 0, 1, -1)
 
-print(len(y_train))
 
 def AdaBoost(X_train, y_train, n_estimators):
     #분류기를 닮을 리스트 생성
@@ -49,6 +48,8 @@ def AdaBoost(X_train, y_train, n_estimators):
 
         #가중치 업데이트 (d)식 [핵심 알고리즘] - 못맞춘 데이터일 수록 가중치 증가
         w_i = np.where(y_train != y_pred, w_i*np.exp(alpha), w_i) 
+        w_i = w_i / sum(w_i)
+
 
     return classifiers # 학습된 모델 알파와 모델 return
 
@@ -60,4 +61,9 @@ def predict(clfs, x):
         s += alpha * clf.predict(x)
     return np.sign(s)
 
-AdaBoost(X_train, y_train,1)
+
+
+result = predict(AdaBoost(X_train, y_train, 3), X_train)
+
+
+
