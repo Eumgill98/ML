@@ -32,3 +32,8 @@
       <li><a href='./Boosting/Adaboost'> - AdaBoosting (adaboosting.py) </li>
     </ul>
 </ul>
+
+
+
+<h2>앞으로 방향성</h2>
+  <li>모듈화</li>
