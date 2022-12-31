@@ -3,12 +3,12 @@
 <br>
 
 🎈 머신러닝 모델 코드 정리
-➡️ sklearn은 고마운 존재이지만... 그걸 넘어서 직접구현project
+
+<h2>정보 (info)</h2>
+<div>Using <img src="https://img.shields.io/badge/Python-black?style=flat-square&logo=Python&logoColor=#3776AB"> to make Machine Learning Model</div>
 
 
-
-
-<h2>Tree</h2>
+<h2>파일 트리(File Tree)</h2>
 
 ```
 ├─Boosting
