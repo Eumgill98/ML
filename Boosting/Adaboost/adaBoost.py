@@ -11,7 +11,7 @@ X_train = data.data
 y_train = np.where(data.target == 0, 1, -1)
 
 
-def AdaBoost(X_train, y_train, n_estimators):
+def AdaBoost(X_train, y_train, n_estimators, learning_rate):
     #분류기를 닮을 리스트 생성
     classifiers = []
     
@@ -41,7 +41,7 @@ def AdaBoost(X_train, y_train, n_estimators):
 
         #(c)식 알고리즘 - ex)  err =0.5 => log((1-0.5)/0.5) = log1 = 0 
         ###(0.5에 가까우면 0에 가까워짐 (신뢰할 수 없기 때문에  이 모델의 a를 0에 가깝게 만든다)
-        alpha = np.log((1-error) / error)
+        alpha =learning_rate * np.log((1-error) / error)
 
         #분류기 저장소에 알파와 모델을 저장한다
         classifiers.append((alpha, clf))
@@ -61,6 +61,7 @@ def predict(clfs, x):
 
 
 
-result = predict(AdaBoost(X_train, y_train, 3), X_train)
+result = predict(AdaBoost(X_train, y_train, 3, 0.01), X_train)
+print(result)
 
 
